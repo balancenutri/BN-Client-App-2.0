@@ -107,3 +107,12 @@ export const email_login = async (req, res) => {
   }
 };
 
+export const hello = async (req, res) => {
+  response_data = {
+    status: true,
+    message: "Password is incorrect",
+  };
+  return res.status(200).json(response_data);
+  
+};
+

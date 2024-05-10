@@ -6,6 +6,7 @@ import Registration from "../models/registration.js";
 import { programDetails } from "../controllers/programDetails.js";
 const router = express.Router();
 
+
 router.post("/email_login", validateFields(['email', 'password','token','format','source','os','model','appversion','fcm_token','notification_flag']), (req, res, next) => {
     const errors = validationResult(req);
 
