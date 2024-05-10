@@ -1,6 +1,6 @@
 // // Import required modules
 import express from "express";
-import userRouter from "./routes/authRoutes.js";
+import router from "./routes/appLoginRoutes.js";
 import cors from "cors";
 import dotenv from "dotenv";
 import { mysqlConnection } from "./db.js";
@@ -11,7 +11,7 @@ app.use(cors());
 // Start the server
 const PORT = process.env.PORT || 3000;
 app.use(express.json());
-
+app.use('/bnClientApp', router);
 // Connect to MySQL
 mysqlConnection.connect((mysqlErr) => {
   if (mysqlErr) {
@@ -31,7 +31,9 @@ mysqlConnection.connect((mysqlErr) => {
 // // });
 
 app.get('/hello', (req, res) => { return res.send("Hello BN") })
-
+// app.get('/', function (req, res) {
+//   return res.sendFile('./Homepage.html');
+// });
 
 
 app.listen(PORT, () => {
