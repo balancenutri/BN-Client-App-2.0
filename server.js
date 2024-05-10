@@ -30,10 +30,8 @@ mysqlConnection.connect((mysqlErr) => {
 // //   console.log("Connected to MongoDB!");
 // // });
 
-app.get('/hello', (req, res) => { return res.send("Hello BN") })
-// app.get('/', function (req, res) {
-//   return res.sendFile('./Homepage.html');
-// });
+app.get('/', (req, res) => { return res.send("Welcome to Balance Nutrition!") })
+
 
 
 app.listen(PORT, () => {
