@@ -4,7 +4,15 @@ import router from "./routes/appLoginRoutes.js";
 import cors from "cors";
 import dotenv from "dotenv";
 import { mysqlConnection } from "./db.js";
-
+import http from 'http';
+ 
+// Create a server object
+const server = http.createServer((req, res) => {
+    // Set the response header
+    res.writeHead(200, {'Content-Type': 'text/plain'});
+    // Write some text to the response
+    res.end('Welcome to my simple Node.js app!');
+});
 const app = express();
 dotenv.config();
 app.use(cors());
@@ -34,7 +42,7 @@ app.get('/', (req, res) => { return res.send("Welcome to Balance Nutrition!") })
 
 
 
-app.listen(PORT, () => {
+server.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });
 
