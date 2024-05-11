@@ -1,48 +1,45 @@
-// // Import required modules
 import express from "express";
 import router from "./routes/appLoginRoutes.js";
 import cors from "cors";
 import dotenv from "dotenv";
 import { mysqlConnection } from "./db.js";
-import http from 'http';
- 
-// Create a server object
-const server = http.createServer((req, res) => {
-    // Set the response header
-    res.writeHead(200, {'Content-Type': 'text/plain'});
-    // Write some text to the response
-    res.end('Welcome to my simple Node.js app!');
-});
+
 const app = express();
 dotenv.config();
 app.use(cors());
-// Start the server
-const PORT = process.env.PORT || 3000;
 app.use(express.json());
 app.use('/bnClientApp', router);
+
+const PORT = process.env.PORT || 3000;
+
 // Connect to MySQL
 mysqlConnection.connect((mysqlErr) => {
   if (mysqlErr) {
     console.error("Error connecting to MySQL database:", mysqlErr);
-    return;
+    process.exit(1); // Exit the process if unable to connect
   }
   console.log("Connected to MySQL database!");
 
-});
-// // Connect to MongoDB
-// // mongooseConnection.connect((mongoErr) => {
-// //   if (mongoErr) {
-// //     console.error("Error connecting to MongoDB:", mongoErr);
-// //     return;
-// //   }
-// //   console.log("Connected to MongoDB!");
-// // });
+  // Start the server after successful database connection
+  const server = app.listen(PORT, () => {
+    console.log(`Server is running on port ${PORT}`);
+  });
 
-app.get('/', (req, res) => { return res.send("Welcome to Balance Nutrition!") })
-
-
-
-server.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}`);
+  // Handle server errors
+  server.on('error', (err) => {
+    console.error('Server error:', err);
+  });
 });
 
+// Error handler middleware
+app.use((err, req, res, next) => {
+  console.error(err.stack);
+  res.status(500).send('Something broke!');
+});
+
+// Default route
+app.get('/', (req, res) => {
+  res.send("Welcome to Balance Nutrition!");
+});
+
+export default app; // Export the app for testing or modular usage
