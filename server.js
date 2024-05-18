@@ -1,4 +1,4 @@
-import express from "express.js";
+import express from "express";
 import router from "./routes/appLoginRoutes.js";
 import cors from "cors";
 import dotenv from "dotenv";
