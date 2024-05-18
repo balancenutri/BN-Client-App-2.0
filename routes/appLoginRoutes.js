@@ -17,4 +17,9 @@ router.post('/emailLogin', (req, res) => {
 router.post('/forgotPassword', (req, res) => {
     forgotPassword(req, res);
 });
+
+router.post('/sendOtp', (req, res) => {
+    forgotPassword(req, res);
+});
+
 export default router;

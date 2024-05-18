@@ -62,6 +62,16 @@ export const emailLogin = async (req, res) => {
   return res.status(200).json(responseData);
 }
 
+export const sendOtp = async (req, res) => {
+    let responseData;
+    console.log(req.body.email);
+    responseData = {
+        status : true,
+        message : 'OTP sent successfully on SMS',
+    };
+  return res.status(200).json(responseData);
+}
+
 export const termsAndConditions = async (req, res) => {
     let responseData;
     responseData = {
