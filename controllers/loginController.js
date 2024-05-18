@@ -30,7 +30,7 @@ export const forgotPassword = async (req, res) => {
             data : {
                 first_name 	: 'app',
                 last_name 	: 'team',
-                email 		: res.body.email_id,
+                email 		: res.body.email,
                 otp 		: 1111
             }
         }
