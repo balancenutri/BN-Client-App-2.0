@@ -6,4 +6,12 @@ programIntroRouter.post('/programDetails', (req, res) => {
     programDetails(req, res);
 });
 
+programIntroRouter.post('/programValidity', (req, res) => {
+    programValidity(req, res);
+});
+
+programIntroRouter.post('/messageByKhyati', (req, res) => {
+    messageByKhyati(req, res);
+});
+
 export default programIntroRouter;
