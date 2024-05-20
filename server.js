@@ -1,6 +1,6 @@
 import express from "express";
 import loginRouter from "./routes/appLoginRoutes.js";
-import programIntroRouter from "./routes/appLoginRoutes.js";
+import programIntroRouter from "./routes/programIntroRoutes.js";
 import cors from "cors";
 import dotenv from "dotenv";
 import { mysqlConnection } from "./db.js";
