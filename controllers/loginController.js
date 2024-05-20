@@ -1,4 +1,4 @@
-import { mysqlConnection } from "../db.js";
+// import { mysqlConnection } from "../db.js";
 
 export const forceAppUpdate = async (req, res) => {
     let responseData;
@@ -67,7 +67,7 @@ export const sendOtp = async (req, res) => {
     console.log(req.body.email);
     responseData = {
         status : true,
-        message : 'OTP sent successfully on SMS',
+        message : 'OTP sent successfully',
     };
   return res.status(200).json(responseData);
 }
