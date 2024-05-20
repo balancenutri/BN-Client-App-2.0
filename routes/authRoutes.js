@@ -3,7 +3,7 @@ import { email_login } from "../controllers/authController.js";
 import { validationResult } from "express-validator";
 import { validateFields } from "../common/Validation.js";
 import Registration from "../models/registration.js";
-import { programDetails } from "../controllers/programIntro.js";
+import { programDetails } from "../controllers/programIntroController.js";
 const router = express.Router();
 
 
