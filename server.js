@@ -1,5 +1,6 @@
 import express from "express";
-import router from "./routes/appLoginRoutes.js";
+import loginRouter from "./routes/appLoginRoutes.js";
+import programIntroRouter from "./routes/appLoginRoutes.js";
 import cors from "cors";
 import dotenv from "dotenv";
 import { mysqlConnection } from "./db.js";
@@ -8,7 +9,9 @@ const app = express();
 dotenv.config();
 app.use(cors());
 app.use(express.json());
-app.use('/bnClientApp', router);
+app.use('/bnClientApp/loginApp', loginRouter);
+app.use('/bnClientApp/programIntro', programIntroRouter);
+
 
 const PORT = process.env.PORT || 3000;
 

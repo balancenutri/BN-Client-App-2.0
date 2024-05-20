@@ -7,7 +7,7 @@
 export const programDetails = async (req, res) => {
     try {
         const skip_assessment = true; 
-       const programs_data = {
+       let programs_data = {
         "program_name": "Weight Loss Pro",
         "offer_blink": false,
         "offer_till": "0",
@@ -276,7 +276,7 @@ export const programDetails = async (req, res) => {
             status: true,
             message: 'programs_details',
             last_visited_screen: 'program-details',
-            skip_assessment: skip_assessment,
+            // skip_assessment: skip_assessment,
             data: programs_data
         };
 
