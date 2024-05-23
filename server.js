@@ -11,6 +11,7 @@ app.use(cors());
 app.use(express.json());
 app.use('/bnClientApp/loginApp', loginRouter);
 app.use('/bnClientApp/programIntro', programIntroRouter);
+app.use('/bnClientApp/sideBarMenu', sideBarMenuRouter);
 
 
 const PORT = process.env.PORT || 3000;

@@ -14,4 +14,8 @@ programIntroRouter.post('/messageByKhyati', (req, res) => {
     messageByKhyati(req, res);
 });
 
+programIntroRouter.post('/messageByKhyati', (req, res) => {
+    messageByKhyati(req, res);
+});
+
 export default programIntroRouter;
