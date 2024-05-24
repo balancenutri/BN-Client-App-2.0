@@ -677,3 +677,14 @@ export const foodFrequency = async (req, res) => {
     }
   return res.status(200).json(responseData);
 }
+
+export const uploadPhoto = async (req, res) => {
+    let responseData;
+    responseData = {
+      status: true,
+      message: "Photo Upload data",
+      assessment_id: "22485",
+      form_data: ""
+    }
+  return res.status(200).json(responseData);
+}
