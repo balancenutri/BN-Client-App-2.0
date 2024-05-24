@@ -284,7 +284,6 @@ export const nutritionLifestyleAnalysis = async (req, res) => {
               other_wheat_product_allergy: "",
               any_other_meal: "",
               any_other_cuisine: "",
-              : "",
               breakfast: "",
               lunch: "",
               dinner: "",
