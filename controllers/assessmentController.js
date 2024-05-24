@@ -49,7 +49,7 @@ export const personalDetails = async (req, res) => {
     responseData = {
         
           status: true,
-          message: "assessment list",
+          message: "Personal Details",
           assessment_id: "22485",
           form_data: {
                 
