@@ -300,3 +300,91 @@ export const nutritionLifestyleAnalysis = async (req, res) => {
     }
   return res.status(200).json(responseData);
 }
+
+export const twentyFourHourDietRecall = async (req, res) => {
+    let responseData;
+    responseData = {
+      status: true,
+      message: "diet recall data",
+      assessment_id: "22485",
+      sleep_time: "",
+      wakeup_time: "",
+      breakfast_compulsory: 1,
+      lunch_compulsory: 1,
+      tea_compulsory: 1,
+      dinner_compulsory: 1,
+      form_data: [
+            {
+              recall_name: "Breakfast",
+              image_icon_color: "blue",
+              mandatory: 1,
+              time: "",
+              menu: "",
+              time_key: "break_time",
+              menu_key: "break_menu",
+              placeholder: "e.g. poha/upma/bread-jam/milk and cereal, etc."
+            },
+            {
+              recall_name: "Mid Morning",
+              image_icon_color: "blue",
+              mandatory: 0,
+              time: null,
+              menu: null,
+              time_key: "midmorning_time",
+              menu_key: "midmorning_menu",
+              placeholder: "e.g. fruits/smoothies/juices/salads/savoury snacks, etc."
+            },
+            {
+              recall_name: "Lunch",
+              image_icon_color: "blue",
+              mandatory: 1,
+              time: null,
+              menu: null,
+              time_key: "lunch_time",
+              menu_key: "lunch_menu",
+              placeholder: "e.g. roti/rice+dal/pav bhaji/paneer sabji, etc."
+            },
+            {
+              recall_name: "Tea / Evening",
+              image_icon_color: "blue",
+              mandatory: 1,
+              time: null,
+              menu: null,
+              time_key: "tea_time",
+              menu_key: "tea_menu",
+              placeholder: "e.g. sandwitch/burger/samosas, etc."
+            },
+            {
+              recall_name: "Late Evening",
+              image_icon_color: "blue",
+              mandatory: 0,
+              time: null,
+              menu: null,
+              time_key: "lateve_time",
+              menu_key: "lateve_menu",
+              placeholder: "e.g. pop corn/potato chips/biscuits/cookies, etc."
+            },
+            {
+              recall_name: "Dinner",
+              image_icon_color: "blue",
+              mandatory: 1,
+              time: null,
+              menu: null,
+              time_key: "dinner_time",
+              menu_key: "dinner_menu",
+              placeholder: "e.g. roti/paratha/rice/dal/paneer sabji, etc."
+            },
+            {
+              recall_name: "Bed Time / Midnight Munching (If Any)",
+              image_icon_color: "blue",
+              mandatory: 0,
+              time: null,
+              menu: null,
+              time_key: "bed_time",
+              menu_key: "bed_menu",
+              placeholder: "e.g. ice-creams/faluda/mung halwa/juice, etc."
+            }
+        ]
+    }
+  return res.status(200).json(responseData);
+}
