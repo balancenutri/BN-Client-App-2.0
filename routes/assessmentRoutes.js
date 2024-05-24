@@ -1,5 +1,5 @@
 import express from "express";
-import { programDetails } from "../controllers/assessmentController.js";
+import { assessmentList } from "../controllers/assessmentController.js";
 const assessmentRouter = express.Router();
 
 assessmentRouter.post('/assessmentList', (req, res) => {
