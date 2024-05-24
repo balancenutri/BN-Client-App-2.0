@@ -7,5 +7,4 @@ sideBarMenuController.post('/sideBarMenu', (req, res) => {
 });
 
 
-
 export default sideBarMenuController;

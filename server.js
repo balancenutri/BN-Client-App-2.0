@@ -2,6 +2,7 @@ import express from "express";
 import loginRouter from "./routes/appLoginRoutes.js";
 import programIntroRouter from "./routes/programIntroRoutes.js";
 import sideBarMenuRouter from "./routes/sideBarMenuRoutes.js";
+import assessmentRouter from "./routes/assessmentRoutes.js";
 import cors from "cors";
 import dotenv from "dotenv";
 import { mysqlConnection } from "./db.js";
@@ -13,6 +14,7 @@ app.use(express.json());
 app.use('/bnClientApp/loginApp', loginRouter);
 app.use('/bnClientApp/programIntro', programIntroRouter);
 app.use('/bnClientApp/sideBarMenu', sideBarMenuRouter);
+app.use('/bnClientApp/assessment', assessmentRouter);
 
 
 const PORT = process.env.PORT || 3000;
