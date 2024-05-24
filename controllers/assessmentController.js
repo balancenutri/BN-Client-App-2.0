@@ -49,16 +49,16 @@ export const personalDetails = async (req, res) => {
     responseData = {
         
           status: true,
-          message: "personal details",
+          message: "assessment list",
           assessment_id: "22485",
-          form_data: [
-                {
-                  id: "53",
+          form_data: {
+                
+                  id: "199",
                   asid: "22485",
-                  user_id: "27379",
-                  name: " ",
-                  email_id: "",
-                  mobile_no: "",
+                  user_id: "13506",
+                  name: "Rahil Shaikh",
+                  email_id: "8898121797@balancenutrition.in",
+                  mobile_no: "8898121797",
                   address: "",
                   country: "",
                   state: "",
@@ -112,9 +112,8 @@ export const personalDetails = async (req, res) => {
                   height_in_feet: "",
                   height_in_inch: "0",
                   goal_weight_start: 40
-                }
-            ]
-        
+                
+          }
     };
   return res.status(200).json(responseData);
 }
