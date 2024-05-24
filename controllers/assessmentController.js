@@ -388,3 +388,292 @@ export const twentyFourHourDietRecall = async (req, res) => {
     }
   return res.status(200).json(responseData);
 }
+
+
+export const foodFrequency = async (req, res) => {
+    let responseData;
+    responseData = {
+      status: true,
+      message: "food frequency data",
+      assessment_id: "22485",
+      eating_habit: "Vegetarian",
+      form_data: [
+            {
+              foodname: "Pizza / Burger",
+              key: "pizza_freq",
+              food_example: "",
+              mandatory: "",
+              food_type: "Vegetarian",
+              other_food_type: "Non Vegetarian",
+              other_food_type_2: "Ovo-Vegetarian (Vegetarian Eating Eggs)",
+              other_food_type_3: "Vegan (No Non-Veg, No Dairy, Only Plant Based Foods)",
+              spinnerdata: ""
+            },
+            {
+              foodname: "Biscuits / Cookies",
+              key: "biscuit_freq",
+              food_example: "",
+              mandatory: 0,
+              food_type: "Vegetarian",
+              other_food_type: "Vegan (No Non-Veg, No Dairy, Only Plant Based Foods)",
+              other_food_type_2: "Non Vegetarian",
+              other_food_type_3: "Ovo-Vegetarian (Vegetarian Eating Eggs)",
+              spinnerdata: ""
+            },
+            {
+              foodname: "Roti / Chapati",
+              key: "chapati_freq",
+              food_example: "",
+              mandatory: 1,
+              food_type: "Vegetarian",
+              other_food_type: "Vegan (No Non-Veg, No Dairy, Only Plant Based Foods)",
+              other_food_type_2: "Non Vegetarian",
+              other_food_type_3: "Ovo-Vegetarian (Vegetarian Eating Eggs)",
+              spinnerdata: ""
+            },
+            {
+              foodname: "Chaat",
+              key: "chaat_freq",
+              food_example: "[Bhel, Sev Puri, Chips, Sev, Pakoda, Etc.]",
+              mandatory: 1,
+              food_type: "Vegetarian",
+              other_food_type: "Vegan (No Non-Veg, No Dairy, Only Plant Based Foods)",
+              other_food_type_2: "Non Vegetarian",
+              other_food_type_3: "Ovo-Vegetarian (Vegetarian Eating Eggs)",
+              spinnerdata: ""
+            },
+            {
+              foodname: "Rice",
+              key: "rice_freq",
+              food_example: "",
+              mandatory: 1,
+              food_type: "Vegetarian",
+              other_food_type: "Vegan (No Non-Veg, No Dairy, Only Plant Based Foods)",
+              other_food_type_2: "Non Vegetarian",
+              other_food_type_3: "Ovo-Vegetarian (Vegetarian Eating Eggs)",
+              spinnerdata: ""
+            },
+            {
+              foodname: "Bread / Pav",
+              key: "bread_freq",
+              food_example: "",
+              mandatory: 1,
+              food_type: "Vegetarian",
+              other_food_type: "Vegan (No Non-Veg, No Dairy, Only Plant Based Foods)",
+              other_food_type_2: "Non Vegetarian",
+              other_food_type_3: "Ovo-Vegetarian (Vegetarian Eating Eggs)",
+              spinnerdata: ""
+            },
+            {
+              foodname: "Paneer",
+              key: "paneer_freq",
+              food_example: "",
+              mandatory: 0,
+              food_type: "Vegetarian",
+              other_food_type: "Vegetarian",
+              other_food_type_2: "Non Vegetarian",
+              other_food_type_3: "Ovo-Vegetarian (Vegetarian Eating Eggs)",
+              spinnerdata: ""
+            },
+            {
+              foodname: "Cheese",
+              key: "cheese_freq",
+              food_example: "",
+              mandatory: 0,
+              food_type: "Vegetarian",
+              other_food_type: "Vegetarian",
+              other_food_type_2: "Non Vegetarian",
+              other_food_type_3: "Ovo-Vegetarian (Vegetarian Eating Eggs)",
+              spinnerdata: ""
+            },
+            {
+              foodname: "Indian Mithai",
+              key: "mithai_freq",
+              food_example: "[Milk-Free If Vegan]",
+              mandatory: 0,
+              food_type: "Vegetarian",
+              other_food_type: "Vegan (No Non-Veg, No Dairy, Only Plant Based Foods)",
+              other_food_type_2: "Non Vegetarian",
+              other_food_type_3: "Ovo-Vegetarian (Vegetarian Eating Eggs)",
+              spinnerdata: ""
+            },
+            {
+              foodname: "Fruits",
+              key: "fruit_freq",
+              food_example: "",
+              mandatory: 0,
+              food_type: "Vegetarian",
+              other_food_type: "Vegan (No Non-Veg, No Dairy, Only Plant Based Foods)",
+              other_food_type_2: "Non Vegetarian",
+              other_food_type_3: "Ovo-Vegetarian (Vegetarian Eating Eggs)",
+              spinnerdata: ""
+            },
+            {
+              foodname: "Fried Snacks",
+              key: "fried_freq",
+              food_example: "[Eg. Chips, Sev, Pakoda, Etc.]",
+              mandatory: 0,
+              food_type: "Vegetarian",
+              other_food_type: "Vegan (No Non-Veg, No Dairy, Only Plant Based Foods)",
+              other_food_type_2: "Non Vegetarian",
+              other_food_type_3: "Ovo-Vegetarian (Vegetarian Eating Eggs)",
+              spinnerdata: ""
+            },
+            {
+              foodname: "Nuts / Dry Fruits",
+              key: "nuts_freq",
+              food_example: "",
+              mandatory: 0,
+              food_type: "Vegetarian",
+              other_food_type: "Vegan (No Non-Veg, No Dairy, Only Plant Based Foods)",
+              other_food_type_2: "Non Vegetarian",
+              other_food_type_3: "Ovo-Vegetarian (Vegetarian Eating Eggs)",
+              spinnerdata: ""
+            },
+            {
+              foodname: "Aerated Beverages / Juices",
+              key: "breverage_freq",
+              food_example: "",
+              mandatory: 0,
+              food_type: "Vegetarian",
+              other_food_type: "Vegan (No Non-Veg, No Dairy, Only Plant Based Foods)",
+              other_food_type_2: "Non Vegetarian",
+              other_food_type_3: "Ovo-Vegetarian (Vegetarian Eating Eggs)",
+              spinnerdata: ""
+            },
+            {
+              foodname: "Tea",
+              key: "tea_freq",
+              food_example: "[Regular/Black/Green]",
+              mandatory: 1,
+              food_type: "Vegetarian",
+              other_food_type: "Vegan (No Non-Veg, No Dairy, Only Plant Based Foods)",
+              other_food_type_2: "Non Vegetarian",
+              other_food_type_3: "Ovo-Vegetarian (Vegetarian Eating Eggs)",
+              spinnerdata: ""
+            },
+            {
+              foodname: "Coffee",
+              key: "cofee_freq",
+              food_example: "[Regular/Black]",
+              mandatory: 1,
+              food_type: "Vegetarian",
+              other_food_type: "Vegan (No Non-Veg, No Dairy, Only Plant Based Foods)",
+              other_food_type_2: "Non Vegetarian",
+              other_food_type_3: "Ovo-Vegetarian (Vegetarian Eating Eggs)",
+              spinnerdata: ""
+            },
+            {
+              foodname: "Breakfast Cereal",
+              key: "cereal_freq",
+              food_example: "[Oats/Muesli/Wheat Flakes/Corn Flakes]",
+              mandatory: 0,
+              food_type: "Vegetarian",
+              other_food_type: "Vegetarian",
+              other_food_type_2: "Non Vegetarian",
+              other_food_type_3: "Ovo-Vegetarian (Vegetarian Eating Eggs)",
+              spinnerdata: ""
+            },
+            {
+              foodname: "Seafood",
+              key: "seafood_freq",
+              food_example: "[Eg. Lobster, Crabs Etc.]",
+              mandatory: 0,
+              food_type: "Non Vegetarian",
+              other_food_type: "Non Vegetarian",
+              other_food_type_2: "Non Vegetarian",
+              other_food_type_3: "Non Vegetarian",
+              spinnerdata: ""
+            },
+            {
+              foodname: "Fish",
+              key: "fish_freq",
+              food_example: "",
+              mandatory: 0,
+              food_type: "Non Vegetarian",
+              other_food_type: "Non Vegetarian",
+              other_food_type_2: "Non Vegetarian",
+              other_food_type_3: "Non Vegetarian",
+              spinnerdata: ""
+            },
+            {
+              foodname: "Chicken",
+              key: "chicken_freq",
+              food_example: "",
+              mandatory: 0,
+              food_type: "Non Vegetarian",
+              other_food_type: "Non Vegetarian",
+              other_food_type_2: "Non Vegetarian",
+              other_food_type_3: "Non Vegetarian",
+              spinnerdata: ""
+            },
+            {
+              foodname: "Mutton",
+              key: "mutton_freq",
+              food_example: "",
+              mandatory: 0,
+              food_type: "Non Vegetarian",
+              other_food_type: "Non Vegetarian",
+              other_food_type_2: "Non Vegetarian",
+              other_food_type_3: "Non Vegetarian",
+              spinnerdata: ""
+            },
+            {
+              foodname: "Beef",
+              key: "beef_freq",
+              food_example: "",
+              mandatory: 0,
+              food_type: "Non Vegetarian",
+              other_food_type: "Non Vegetarian",
+              other_food_type_2: "Non Vegetarian",
+              other_food_type_3: "Non Vegetarian",
+              spinnerdata: ""
+            },
+            {
+              foodname: "Pork",
+              key: "pork_freq",
+              food_example: "",
+              mandatory: 0,
+              food_type: "Non Vegetarian",
+              other_food_type: "Non Vegetarian",
+              other_food_type_2: "Non Vegetarian",
+              other_food_type_3: "Non Vegetarian",
+              spinnerdata: ""
+            },
+            {
+              foodname: "Eggs",
+              key: "egg_freq",
+              food_example: "",
+              mandatory: 0,
+              food_type: "Non Vegetarian",
+              other_food_type: "Ovo-Vegetarian (Vegetarian Eating Eggs)",
+              other_food_type_2: "Non Vegetarian",
+              other_food_type_3: "Non Vegetarian",
+              spinnerdata: ""
+            },
+            {
+              foodname: "Midnight Snacks",
+              key: "midnight_freq",
+              food_example: "[Eg. Popcorn, Chiwda, Chakli, Etc.]",
+              mandatory: 0,
+              food_type: "Vegetarian",
+              other_food_type: "Vegan (No Non-Veg, No Dairy, Only Plant Based Foods)",
+              other_food_type_2: "Non Vegetarian",
+              other_food_type_3: "Ovo-Vegetarian (Vegetarian Eating Eggs)",
+              spinnerdata: ""
+            },
+            {
+              foodname: "Western Desserts & Ice-Cream",
+              key: "dessert_freq",
+              food_example: "",
+              mandatory: 0,
+              food_type: "Vegetarian",
+              other_food_type: "Vegan (No Non-Veg, No Dairy, Only Plant Based Foods)",
+              other_food_type_2: "Non Vegetarian",
+              other_food_type_3: "Ovo-Vegetarian (Vegetarian Eating Eggs)",
+              spinnerdata: ""
+            }
+        ]
+    }
+  return res.status(200).json(responseData);
+}
