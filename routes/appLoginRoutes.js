@@ -1,5 +1,5 @@
 import express from "express";
-import { forceAppUpdate,termsAndConditions,emailLogin,forgotPassword,sendOtp } from "../controllers/loginController.js";
+import { forceAppUpdate,termsAndConditions,emailLogin,forgotPassword,sendOtp,verifyOtp } from "../controllers/loginController.js";
 const loginRouter = express.Router();
 
 loginRouter.post('/forceAppUpdate', (req, res) => {
@@ -23,7 +23,7 @@ loginRouter.post('/sendOtp', (req, res) => {
 });
 
 loginRouter.post('/verifyOtp', (req, res) => {
-    sendOtp(req, res);
+    verifyOtp(req, res);
 });
 
 export default loginRouter;

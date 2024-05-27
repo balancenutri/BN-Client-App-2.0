@@ -82,7 +82,7 @@ export const verifyOtp = async (req, res) => {
 
     responseData = {
         status : true,
-        message : 'OTP match successfully',
+        message : 'OTP verified successfully',
         data : user_otp_data
     };
     
