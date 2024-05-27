@@ -72,6 +72,23 @@ export const sendOtp = async (req, res) => {
   return res.status(200).json(responseData);
 }
 
+export const verifyOtp = async (req, res) => {
+    let responseData;
+    // console.log(req.body.email);
+    let user_otp_data = {
+        email 		: req.body.email,
+        otp			: 1111
+    };
+
+    responseData = {
+        status : true,
+        message : 'OTP match successfully',
+        data : user_otp_data
+    };
+    
+  return res.status(200).json(responseData);
+}
+
 export const termsAndConditions = async (req, res) => {
     let responseData;
     responseData = {

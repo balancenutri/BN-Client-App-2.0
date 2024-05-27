@@ -22,4 +22,8 @@ loginRouter.post('/sendOtp', (req, res) => {
     sendOtp(req, res);
 });
 
+loginRouter.post('/verifyOtp', (req, res) => {
+    sendOtp(req, res);
+});
+
 export default loginRouter;
