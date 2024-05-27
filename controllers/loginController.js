@@ -76,7 +76,7 @@ export const verifyOtp = async (req, res) => {
     let responseData;
     // console.log(req.body.email);
     let user_otp_data = {
-        email 		: req.body.email,
+        email 		: "user@gmail.com",
         otp			: 1111
     };
 
@@ -84,6 +84,18 @@ export const verifyOtp = async (req, res) => {
         status : true,
         message : 'OTP verified successfully',
         data : user_otp_data
+    };
+    
+  return res.status(200).json(responseData);
+}
+
+export const setPassword = async (req, res) => {
+    let responseData;
+    // console.log(req.body.email);
+   
+    responseData = {
+        status : true,
+        message : 'Your password has been changed successfully',
     };
     
   return res.status(200).json(responseData);
