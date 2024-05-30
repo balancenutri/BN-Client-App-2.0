@@ -41,7 +41,7 @@ export const forgotPassword = async (req, res) => {
 
 export const emailLogin = async (req, res) => {
     let responseData;
-    console.log(req.body.email);
+    // console.log(req.body.email);
     responseData = {
             status: true,
             message: "User Logged in successfully!",
@@ -54,7 +54,7 @@ export const emailLogin = async (req, res) => {
                 user_type:"Client",
                 hs_taken:true,
                 profile_img:"I",
-                last_visited_screen:"my-profile",
+                last_visited_screen:"program",
                 chat_url:"https:\/\/www.balancenutrition.in\/mentor-chat-for-app\/Mjg4NTA=\/401eb87494c058299c9f7c6af03fabea"
             }
             }

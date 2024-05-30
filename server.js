@@ -6,8 +6,11 @@ import assessmentRouter from "./routes/assessmentRoutes.js";
 import cors from "cors";
 import dotenv from "dotenv";
 import { mysqlConnection } from "./db.js";
+import bodyParser from "body-parser";
 
 const app = express();
+app.use(bodyParser.json());
+
 dotenv.config();
 app.use(cors());
 app.use(express.json());

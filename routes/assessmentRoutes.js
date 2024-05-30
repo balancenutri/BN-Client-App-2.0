@@ -1,5 +1,5 @@
 import express from "express";
-import { assessmentList,personalDetails,nutritionLifestyleAnalysis,twentyFourHourDietRecall,foodFrequency,uploadPhoto,getMedicalHistory } from "../controllers/assessmentController.js";
+import { assessmentList,personalDetails,nutritionLifestyleAnalysis,twentyFourHourDietRecall,foodFrequency,uploadPhoto,getMedicalHistory,attachMedicalReport } from "../controllers/assessmentController.js";
 const assessmentRouter = express.Router();
 
 assessmentRouter.post('/assessmentList', (req, res) => {
@@ -28,5 +28,9 @@ assessmentRouter.post('/uploadPhoto', (req, res) => {
 
 assessmentRouter.post('/getMedicalHistory', (req, res) => {
     getMedicalHistory(req, res);
+});
+
+assessmentRouter.post('/attachMedicalReport', (req, res) => {
+    attachMedicalReport(req, res);
 });
 export default assessmentRouter;
