@@ -4,7 +4,7 @@ import { forceAppUpdate,termsAndConditions,emailLogin,forgotPassword,sendOtp,ver
 const loginRouter = express.Router();
 
 loginRouter.post('/forceAppUpdate', [
-    body('user_id').notEmpty().withMessage('User Id is required'),
+    body('user_id').isEmpty().withMessage('User Id is required'),
     // body('username').isString().notEmpty().withMessage('Username is required'),
     // body('email').isEmail().withMessage('Invalid email address'),
     // body('password').isLength({ min: 6 }).withMessage('Password must be at least 6 characters long'),
