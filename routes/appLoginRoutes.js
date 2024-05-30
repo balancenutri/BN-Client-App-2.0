@@ -1,78 +1,40 @@
 import express from "express";
-import { body,validationResult } from "express-validator";
+import { body } from "express-validator";
 import { forceAppUpdate,termsAndConditions,emailLogin,forgotPassword,sendOtp,verifyOtp,setPassword } from "../controllers/loginController.js";
 const loginRouter = express.Router();
+import { validate } from "../common/validation.js";
 
-loginRouter.post('/forceAppUpdate', [
-    body('user_id').isEmpty().withMessage('User Id is required'),
-    // body('username').isString().notEmpty().withMessage('Username is required'),
-    // body('email').isEmail().withMessage('Invalid email address'),
-    // body('password').isLength({ min: 6 }).withMessage('Password must be at least 6 characters long'),
-],(req, res) => {
-    const errors = validationResult(req);
-    if (!errors.isEmpty()) {
-        return res.status(400).json({ errors: errors.array() });
-    }
+const userValidationRules = () => {
+    return [
+      body('user_id').notEmpty().withMessage('User Id is required'),
+    ];
+};
+
+loginRouter.post('/forceAppUpdate', userValidationRules(), validate,(req, res) => {
     forceAppUpdate(req, res);
 });
 
-loginRouter.post('/termsAndConditions', [
-    body('user_id').notEmpty().withMessage('User Id is required'),
-],(req, res) => {
-    const errors = validationResult(req);
-    if (!errors.isEmpty()) {
-        return res.status(400).json({ errors: errors.array() });
-    }
+loginRouter.post('/termsAndConditions', userValidationRules(), validate,(req, res) => {
     termsAndConditions(req, res);
 });
 
-loginRouter.post('/emailLogin', [
-    body('user_id').notEmpty().withMessage('User Id is required'),
-],(req, res) => {
-    const errors = validationResult(req);
-    if (!errors.isEmpty()) {
-        return res.status(400).json({ errors: errors.array() });
-    }
+loginRouter.post('/emailLogin', userValidationRules(), validate,(req, res) => {
     emailLogin(req, res);
 });
 
-loginRouter.post('/forgotPassword', [
-    body('user_id').notEmpty().withMessage('User Id is required'),
-],(req, res) => {
-    const errors = validationResult(req);
-    if (!errors.isEmpty()) {
-        return res.status(400).json({ errors: errors.array() });
-    }
+loginRouter.post('/forgotPassword', userValidationRules(), validate,(req, res) => {
     forgotPassword(req, res);
 });
 
-loginRouter.post('/sendOtp', [
-    body('user_id').notEmpty().withMessage('User Id is required'),
-],(req, res) => {
-    const errors = validationResult(req);
-    if (!errors.isEmpty()) {
-        return res.status(400).json({ errors: errors.array() });
-    }
+loginRouter.post('/sendOtp', userValidationRules(), validate,(req, res) => {
     sendOtp(req, res);
 });
 
-loginRouter.post('/verifyOtp', [
-    body('user_id').notEmpty().withMessage('User Id is required'),
-],(req, res) => {
-    const errors = validationResult(req);
-    if (!errors.isEmpty()) {
-        return res.status(400).json({ errors: errors.array() });
-    }
+loginRouter.post('/verifyOtp', userValidationRules(), validate,(req, res) => {
     verifyOtp(req, res);
 });
 
-loginRouter.post('/setPassword', [
-    body('user_id').notEmpty().withMessage('User Id is required'),
-],(req, res) => {
-    const errors = validationResult(req);
-    if (!errors.isEmpty()) {
-        return res.status(400).json({ errors: errors.array() });
-    }
+loginRouter.post('/setPassword', userValidationRules(), validate,(req, res) => {
     setPassword(req, res);
 });
 
