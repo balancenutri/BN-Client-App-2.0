@@ -22,7 +22,7 @@ app.use('/bnClientApp/programIntro', programIntroRouter);
 app.use('/bnClientApp/sideBarMenu', sideBarMenuRouter);
 app.use('/bnClientApp/assessment', assessmentRouter);
 app.use('/bnClientApp/icl', iclRouter);
-app.use('/bnClientApp/icl', mentorIntroRouter);
+app.use('/bnClientApp/mentorIntro', mentorIntroRouter);
 
 
 
