@@ -19,6 +19,7 @@ app.use('/bnClientApp/loginApp', loginRouter);
 app.use('/bnClientApp/programIntro', programIntroRouter);
 app.use('/bnClientApp/sideBarMenu', sideBarMenuRouter);
 app.use('/bnClientApp/assessment', assessmentRouter);
+app.use('/bnClientApp/icl', iclRouter);
 
 
 const PORT = process.env.PORT || 3000;

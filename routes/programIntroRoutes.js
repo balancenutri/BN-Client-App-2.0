@@ -20,8 +20,8 @@ programIntroRouter.post('/messageByKhyati',  userValidationRules(), validate,(re
     messageByKhyati(req, res);
 });
 
-programIntroRouter.post('/messageByKhyati',  userValidationRules(), validate,(req, res) => {
-    messageByKhyati(req, res);
-});
+// programIntroRouter.post('/messageByKhyati',  userValidationRules(), validate,(req, res) => {
+//     messageByKhyati(req, res);
+// });
 
 export default programIntroRouter;

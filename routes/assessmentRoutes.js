@@ -1,5 +1,5 @@
 import express from "express";
-import { assessmentList,personalDetails,nutritionLifestyleAnalysis,twentyFourHourDietRecall,foodFrequency,uploadPhoto,getMedicalHistory,attachMedicalReport } from "../controllers/assessmentController.js";
+import { assessmentList,personalDetails,nutritionLifestyleAnalysis,twentyFourHourDietRecall,foodFrequency,uploadPhoto,getMedicalHistory,attachMedicalReport,noteToKhyati } from "../controllers/assessmentController.js";
 import { validate } from "../common/validation.js";
 import { body } from "express-validator";
 const assessmentRouter = express.Router();
@@ -40,5 +40,9 @@ assessmentRouter.post('/getMedicalHistory',  userValidationRules(), validate,(re
 
 assessmentRouter.post('/attachMedicalReport', userValidationRules(), validate, (req, res) => {
     attachMedicalReport(req, res);
+});
+
+assessmentRouter.post('/noteToKhyati', userValidationRules(), validate, (req, res) => {
+    noteToKhyati(req, res);
 });
 export default assessmentRouter;
