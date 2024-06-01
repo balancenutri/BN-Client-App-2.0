@@ -9,7 +9,7 @@ import { mysqlConnection } from "./db.js";
 import bodyParser from "body-parser";
 import iclRouter from "./routes/iclRoutes.js";
 import mentorIntroRouter from "./routes/mentorIntroRoutes.js";
-
+import dietSectionRouter from "./routes/dietSectionRoutes.js";
 const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended:false}));
@@ -23,8 +23,7 @@ app.use('/bnClientApp/sideBarMenu', sideBarMenuRouter);
 app.use('/bnClientApp/assessment', assessmentRouter);
 app.use('/bnClientApp/icl', iclRouter);
 app.use('/bnClientApp/mentorIntro', mentorIntroRouter);
-
-
+app.use('/bnClientApp/dietSection', dietSectionRouter);
 
 const PORT = process.env.PORT || 3000;
 
