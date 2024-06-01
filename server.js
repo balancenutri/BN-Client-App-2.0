@@ -7,6 +7,8 @@ import cors from "cors";
 import dotenv from "dotenv";
 import { mysqlConnection } from "./db.js";
 import bodyParser from "body-parser";
+import iclRouter from "./routes/iclRoutes.js";
+import mentorIntroRouter from "./routes/mentorIntroRoutes.js";
 
 const app = express();
 app.use(express.json());
@@ -20,6 +22,8 @@ app.use('/bnClientApp/programIntro', programIntroRouter);
 app.use('/bnClientApp/sideBarMenu', sideBarMenuRouter);
 app.use('/bnClientApp/assessment', assessmentRouter);
 app.use('/bnClientApp/icl', iclRouter);
+app.use('/bnClientApp/icl', mentorIntroRouter);
+
 
 
 const PORT = process.env.PORT || 3000;
