@@ -22,6 +22,7 @@
     "mongoose": "^8.3.2",
     "morgan": "^1.10.0",
     "mysql2": ">=3.7.0",
+    "sequelize": "^6.37.3",
     "vercel": "^34.1.10"
   },
   "devDependencies": {

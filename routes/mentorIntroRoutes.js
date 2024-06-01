@@ -1,5 +1,5 @@
 import express from "express";
-import { chatWithMentor,meetYourMentor,mentorMessage,whatWeAnalyse,fastingWindow,eKit } from "../controllers/mentorIntroController.js";
+import { getChatData,meetYourMentor,mentorMessage,whatWeAnalyse,fastingWindow,eKitList } from "../controllers/mentorIntroController.js";
 import { validate } from "../common/validation.js";
 import { body } from "express-validator";
 const mentorIntroRouter = express.Router();
@@ -8,8 +8,8 @@ const userValidationRules = () => {
       body('user_id').notEmpty().withMessage('User Id is required'),
     ];
 };
-mentorIntroRouter.post('/chatWithMentor',  userValidationRules(), validate,(req, res) => {
-    chatWithMentor(req, res);
+mentorIntroRouter.post('/getChatData',  userValidationRules(), validate,(req, res) => {
+    getChatData(req, res);
 });
 
 mentorIntroRouter.post('/meetYourMentor',  userValidationRules(), validate,(req, res) => {
@@ -28,7 +28,7 @@ mentorIntroRouter.post('/fastingWindow',  userValidationRules(), validate,(req, 
     fastingWindow(req, res);
 });
 
-mentorIntroRouter.post('/eKit',  userValidationRules(), validate,(req, res) => {
-    eKit(req, res);
+mentorIntroRouter.post('/eKitList',  userValidationRules(), validate,(req, res) => {
+    eKitList(req, res);
 });
 export default mentorIntroRouter;
