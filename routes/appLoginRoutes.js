@@ -10,7 +10,7 @@ const userValidationRules = () => {
     ];
 };
 
-loginRouter.post('/forceAppUpdate', userValidationRules(), validate,(req, res) => {
+loginRouter.post('/forceAppUpdate',(req, res) => {
     forceAppUpdate(req, res);
 });
 
