@@ -26,7 +26,7 @@ loginRouter.post('/forgotPassword', userValidationRules(), validate,(req, res) =
     forgotPassword(req, res);
 });
 
-loginRouter.post('/sendOtp', userValidationRules(), validate,(req, res) => {
+loginRouter.post('/sendOtp', (req, res) => {
     sendOtp(req, res);
 });
 
