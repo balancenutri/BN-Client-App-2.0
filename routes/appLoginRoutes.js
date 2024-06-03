@@ -18,7 +18,7 @@ loginRouter.post('/termsAndConditions', userValidationRules(), validate,(req, re
     termsAndConditions(req, res);
 });
 
-loginRouter.post('/emailLogin'(req, res) => {
+loginRouter.post('/emailLogin',(req, res) => {
     emailLogin(req, res);
 });
 
