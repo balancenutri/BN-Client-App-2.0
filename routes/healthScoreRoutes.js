@@ -1,6 +1,6 @@
 import express from "express";
 import { body } from "express-validator";
-import { saveHealthScore } from "../controllers/healthScoreController.js";
+import { generateHealthScoreReport } from "../controllers/healthScoreController.js";
 const healthScoreRouter = express.Router();
 import { validate } from "../common/validation.js";
 
@@ -12,6 +12,10 @@ const userValidationRules = () => {
 
 healthScoreRouter.post('/saveHealthScore', userValidationRules(), validate,(req, res) => {
     saveHealthScore(req, res);
+});
+
+healthScoreRouter.post('/generateHealthScoreReport', userValidationRules(), validate,(req, res) => {
+    generateHealthScoreReport(req, res);
 });
 
 export default healthScoreRouter;
