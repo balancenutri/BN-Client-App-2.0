@@ -77,3 +77,36 @@ export const viewGoals = async (req, res) => {
       .json({ status: false, message: "Internal server error" });
   }
 };
+
+
+  export const addGoals = async (req, res) => {
+    try {
+      const response_data = {
+        status: true,
+        message: "Goals added successfully",
+      };
+
+      return res.status(200).json(response_data);
+    } catch (error) {
+      console.error("Error in addGoals:", error);
+      return res
+        .status(500)
+        .json({ status: false, message: "Internal server error" });
+    }
+  };
+
+  export const editGoals = async (req, res) => {
+    try {
+      const response_data = {
+        status: true,
+        message: "Goals updated successfully",
+      };
+
+      return res.status(200).json(response_data);
+    } catch (error) {
+      console.error("Error in editGoals:", error);
+      return res
+        .status(500)
+        .json({ status: false, message: "Internal server error" });
+    }
+  };
