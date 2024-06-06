@@ -11,6 +11,8 @@ import iclRouter from "./routes/iclRoutes.js";
 import mentorIntroRouter from "./routes/mentorIntroRoutes.js";
 import dietSectionRouter from "./routes/dietSectionRoutes.js";
 import healthScoreRouter from "./routes/healthScoreRoutes.js";
+import homeScreenRouter from "./routes/homeScreenRoutes.js";
+import goalRouter from "./routes/goalRoutes.js";
 const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended:false}));
@@ -26,6 +28,8 @@ app.use('/bnClientApp/icl', iclRouter);
 app.use('/bnClientApp/mentorIntro', mentorIntroRouter);
 app.use('/bnClientApp/dietSection', dietSectionRouter);
 app.use('/bnClientApp/healthScore', healthScoreRouter);
+app.use("/bnClientApp/clientHomeScreen", homeScreenRouter);
+app.use("/bnClientApp/goal", goalRouter);
 
 const PORT = process.env.PORT || 3000;
 
