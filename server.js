@@ -1,12 +1,15 @@
 import express from "express";
-import loginRouter from "./routes/appLoginRoutes.js";
-import programIntroRouter from "./routes/programIntroRoutes.js";
-import sideBarMenuRouter from "./routes/sideBarMenuRoutes.js";
-import assessmentRouter from "./routes/assessmentRoutes.js";
 import cors from "cors";
 import dotenv from "dotenv";
 import { mysqlConnection } from "./db.js";
 import bodyParser from "body-parser";
+// =================================================================
+// -----------------------------Importing Routes---------------------------------
+// =================================================================
+import loginRouter from "./routes/appLoginRoutes.js";
+import programIntroRouter from "./routes/programIntroRoutes.js";
+import sideBarMenuRouter from "./routes/sideBarMenuRoutes.js";
+import assessmentRouter from "./routes/assessmentRoutes.js";
 import iclRouter from "./routes/iclRoutes.js";
 import mentorIntroRouter from "./routes/mentorIntroRoutes.js";
 import dietSectionRouter from "./routes/dietSectionRoutes.js";
@@ -14,6 +17,9 @@ import healthScoreRouter from "./routes/healthScoreRoutes.js";
 import homeScreenRouter from "./routes/homeScreenRoutes.js";
 import goalRouter from "./routes/goalRoutes.js";
 import recipeRouter from "./routes/recipeRoutes.js";
+import trackerRouter from "./routes/trackerRoutes.js";
+// =================================================================
+
 const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended:false}));
@@ -21,6 +27,10 @@ app.use(express.urlencoded({ extended:false}));
 dotenv.config();
 app.use(cors());
 app.use(express.json());
+
+// =================================================================
+// -----------------------------Routes Starts---------------------------------
+// =================================================================
 app.use('/bnClientApp/loginApp', loginRouter);
 app.use('/bnClientApp/programIntro', programIntroRouter);
 app.use('/bnClientApp/sideBarMenu', sideBarMenuRouter);
@@ -32,11 +42,15 @@ app.use('/bnClientApp/healthScore', healthScoreRouter);
 app.use("/bnClientApp/clientHomeScreen", homeScreenRouter);
 app.use("/bnClientApp/goal", goalRouter);
 app.use("/bnClientApp/recipe", recipeRouter);
+app.use("/bnClientApp/tracker", trackerRouter);
+// =================================================================
 
 
 const PORT = process.env.PORT || 3000;
 
-// Connect to MySQL
+// =================================================================
+// -----------------------------MYSQL Connection---------------------------------
+// =================================================================
 mysqlConnection.connect((mysqlErr) => {
   if (mysqlErr) {
     console.error("Error connecting to MySQL database:", mysqlErr);
@@ -54,6 +68,7 @@ mysqlConnection.connect((mysqlErr) => {
     console.error('Server error:', err);
   });
 });
+// =================================================================
 
 // Error handler middleware
 app.use((err, req, res, next) => {
@@ -66,4 +81,4 @@ app.get('/', (req, res) => {
   res.send("Welcome to Balance Nutrition!");
 });
 
-export default app; // Export the app for testing or modular usage
+export default app; 
