@@ -1,7 +1,7 @@
 import express from "express";
 import { email_login } from "../controllers/authController.js";
 import { validationResult } from "express-validator";
-import { validateFields } from "../common/Validation.js";
+import { validateFields } from "/common/Validation.js";
 import Registration from "../models/registration.js";
 import { programDetails } from "../controllers/programIntroController.js";
 const router = express.Router();
@@ -30,7 +30,6 @@ const router = express.Router();
 //       res.status(500).json({ error: 'Internal Server Error' });
 //     }
 //   });
-
 
 //   router.get('/getData', async (req, res) => {
 //     try {

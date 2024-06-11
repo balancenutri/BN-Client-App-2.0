@@ -18,6 +18,7 @@ import homeScreenRouter from "./routes/homeScreenRoutes.js";
 import goalRouter from "./routes/goalRoutes.js";
 import recipeRouter from "./routes/recipeRoutes.js";
 import trackerRouter from "./routes/trackerRoutes.js";
+import checkoutRouter from "./routes/checkoutRoutes.js";
 // =================================================================
 
 const app = express();
@@ -43,6 +44,8 @@ app.use("/bnClientApp/clientHomeScreen", homeScreenRouter);
 app.use("/bnClientApp/goal", goalRouter);
 app.use("/bnClientApp/recipe", recipeRouter);
 app.use("/bnClientApp/tracker", trackerRouter);
+app.use("/bnClientApp/tracker", trackerRouter);
+app.use("/bnClientApp/tracker", checkoutRouter);
 // =================================================================
 
 
