@@ -87,7 +87,7 @@ app.use((err, req, res, next) => {
 });
 
 // Default route
-app.get('/', (req, res) => {
+app.get("/bnClientApp", (req, res) => {
   res.send("Welcome to Balance Nutrition!");
 });
 
