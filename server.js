@@ -54,22 +54,29 @@ const PORT = process.env.PORT || 3000;
 // =================================================================
 // -----------------------------MYSQL Connection---------------------------------
 // =================================================================
-mysqlConnection.connect((mysqlErr) => {
+mysqlConnection.connect(async (mysqlErr) => {
   if (mysqlErr) {
     console.error("Error connecting to MySQL database:", mysqlErr);
     process.exit(1); // Exit the process if unable to connect
   }
   console.log("Connected to MySQL database!");
 
-  // Start the server after successful database connection
-  const server = app.listen(PORT, () => {
-    console.log(`Server is running on port ${PORT}`);
-  });
+  try {
+    await connectToMongoDB();
+    console.log("Connected to MongoDB!");
+    // Start the server after successful database connection
+    const server = app.listen(PORT, () => {
+      console.log(`Server is running on port ${PORT}`);
+    });
 
-  // Handle server errors
-  server.on('error', (err) => {
-    console.error('Server error:', err);
-  });
+    // Handle server errors
+    server.on("error", (err) => {
+      console.error("Server error:", err);
+    });
+  } catch (mongoErr) {
+    console.error("Error connecting to MongoDB:", mongoErr);
+    process.exit(1); // Exit with failure code
+  }
 });
 // =================================================================
 
