@@ -25,7 +25,7 @@ dotenv.config();
 
 // MySQL database configuration
 export const mysqlConnection = mysql.createConnection({
-  host: "balancenutritiononline.com",
+  host: "localhost",
   user: "balancei_admin",
   password: "JHa2jejD1P",
   database: "balancei_nutweb",
