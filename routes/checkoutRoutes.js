@@ -14,9 +14,7 @@ checkoutRouter.post(
   "/programCheckout",
   userValidationRules(),
   validate,
-  (req, res) => {
-    programCheckout(req, res);
-  }
+  programCheckout
 );
 
 
