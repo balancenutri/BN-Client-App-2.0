@@ -44,8 +44,7 @@ app.use("/bnClientApp/clientHomeScreen", homeScreenRouter);
 app.use("/bnClientApp/goal", goalRouter);
 app.use("/bnClientApp/recipe", recipeRouter);
 app.use("/bnClientApp/tracker", trackerRouter);
-app.use("/bnClientApp/tracker", trackerRouter);
-app.use("/bnClientApp/tracker", checkoutRouter);
+app.use("/bnClientApp/checkout", checkoutRouter);
 // =================================================================
 
 const PORT = process.env.PORT || 3000;
