@@ -23,7 +23,7 @@ import checkoutRouter from "./routes/checkoutRoutes.js";
 
 const app = express();
 app.use(express.json());
-app.use(express.urlencoded({ extended:false}));
+app.use(express.urlencoded({ extended: false }));
 
 dotenv.config();
 app.use(cors());
@@ -32,14 +32,14 @@ app.use(express.json());
 // =================================================================
 // -----------------------------Routes Starts---------------------------------
 // =================================================================
-app.use('/bnClientApp/loginApp', loginRouter);
-app.use('/bnClientApp/programIntro', programIntroRouter);
-app.use('/bnClientApp/sideBarMenu', sideBarMenuRouter);
-app.use('/bnClientApp/assessment', assessmentRouter);
-app.use('/bnClientApp/icl', iclRouter);
-app.use('/bnClientApp/mentorIntro', mentorIntroRouter);
-app.use('/bnClientApp/dietSection', dietSectionRouter);
-app.use('/bnClientApp/healthScore', healthScoreRouter);
+app.use("/bnClientApp/loginApp", loginRouter);
+app.use("/bnClientApp/programIntro", programIntroRouter);
+app.use("/bnClientApp/sideBarMenu", sideBarMenuRouter);
+app.use("/bnClientApp/assessment", assessmentRouter);
+app.use("/bnClientApp/icl", iclRouter);
+app.use("/bnClientApp/mentorIntro", mentorIntroRouter);
+app.use("/bnClientApp/dietSection", dietSectionRouter);
+app.use("/bnClientApp/healthScore", healthScoreRouter);
 app.use("/bnClientApp/clientHomeScreen", homeScreenRouter);
 app.use("/bnClientApp/goal", goalRouter);
 app.use("/bnClientApp/recipe", recipeRouter);
@@ -47,7 +47,6 @@ app.use("/bnClientApp/tracker", trackerRouter);
 app.use("/bnClientApp/tracker", trackerRouter);
 app.use("/bnClientApp/tracker", checkoutRouter);
 // =================================================================
-
 
 const PORT = process.env.PORT || 3000;
 
@@ -62,6 +61,7 @@ mysqlConnection.connect(async (mysqlErr) => {
   console.log("Connected to MySQL database!");
 
   try {
+    // -----------------------------Mongo Connection---------------------------------
     await connectToMongoDB();
     console.log("Connected to MongoDB!");
     // Start the server after successful database connection
@@ -83,7 +83,7 @@ mysqlConnection.connect(async (mysqlErr) => {
 // Error handler middleware
 app.use((err, req, res, next) => {
   console.error(err.stack);
-  res.status(500).send('Something broke!');
+  res.status(500).send("Something broke!");
 });
 
 // Default route
@@ -91,4 +91,4 @@ app.get("/bnClientApp", (req, res) => {
   res.send("Welcome to Balance Nutrition!");
 });
 
-export default app; 
+export default app;
