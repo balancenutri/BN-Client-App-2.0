@@ -44,6 +44,7 @@ app.use("/bnClientApp/clientHomeScreen", homeScreenRouter);
 app.use("/bnClientApp/goal", goalRouter);
 app.use("/bnClientApp/recipe", recipeRouter);
 app.use("/bnClientApp/tracker", trackerRouter);
+app.use("/bnClientApp/tracker", trackerRouter);
 app.use("/bnClientApp/checkout", checkoutRouter);
 // =================================================================
 
@@ -60,7 +61,6 @@ mysqlConnection.connect(async (mysqlErr) => {
   console.log("Connected to MySQL database!");
 
   try {
-    // -----------------------------Mongo Connection---------------------------------
     await connectToMongoDB();
     console.log("Connected to MongoDB!");
     // Start the server after successful database connection
