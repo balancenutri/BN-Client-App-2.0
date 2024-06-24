@@ -19,13 +19,14 @@ import goalRouter from "./routes/goalRoutes.js";
 import recipeRouter from "./routes/recipeRoutes.js";
 import trackerRouter from "./routes/trackerRoutes.js";
 import checkoutRouter from "./routes/checkoutRoutes.js";
+import protectedRouter from "./routes/protectedRoutes.js";
 // =================================================================
 
+dotenv.config();
 const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
-dotenv.config();
 app.use(cors());
 app.use(express.json());
 
@@ -33,6 +34,7 @@ app.use(express.json());
 // -----------------------------Routes Starts---------------------------------
 // =================================================================
 app.use("/bnClientApp/loginApp", loginRouter);
+app.use("/bnClientApp/protected", protectedRouter);
 app.use("/bnClientApp/programIntro", programIntroRouter);
 app.use("/bnClientApp/sideBarMenu", sideBarMenuRouter);
 app.use("/bnClientApp/assessment", assessmentRouter);

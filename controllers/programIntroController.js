@@ -7,28 +7,29 @@ export const programDetails = async (req, res) => {
     try {
        
         const response_data = {
-        status: true,
-        message: "Your Program Details!",
-        last_visited_screen: "program-details",
-        skip_assessment: 1,
-        data: {
-            program_name: "",
-            prog_duration: null,
-            program_status: "Inactive",
-            mentor_name: "To Be Assigned",
+          status: true,
+          message: "Your Program Details",
+          last_visited_screen: "program-details",
+          skip_assessment: 0,
+          data: {
+            program_name: "Active",
+            prog_duration: "45 Days",
+            program_status: "Active",
+            mentor_name: "M/s. Nikita K.",
             check_ICL: "N",
-            redirect_page: null,
-            order_id: null,
-            user_status: "0",
+            redirect_page: "program-details",
+            order_id: "49458",
+            user_status: "1",
             program_renewed: 0,
             explore_button: "",
             start_in: "",
-            needhealthscoretaken: "Yes",
-            skip_assessment: 1,
+            needhealthscoretaken: "No",
+            skip_assessment: 0,
             program_details_flag: 3,
-            is_mentor_assigned: false
-          }
-      }
+            is_mentor_assigned: true,
+            is_cleanse_program: false,
+          },
+        };
 
         return res.status(200).json(response_data);
     } catch (error) {

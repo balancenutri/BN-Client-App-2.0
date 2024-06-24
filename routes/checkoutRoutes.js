@@ -1,4 +1,4 @@
-import express from "express";
+import express, { application } from "express";
 import { body } from "express-validator";
 import {
   programCheckout
@@ -16,7 +16,6 @@ checkoutRouter.post(
   validate,
   programCheckout
 );
-
 
 export default checkoutRouter;
 

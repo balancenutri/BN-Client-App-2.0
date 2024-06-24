@@ -20,11 +20,18 @@ export const connectToMongoDB = () => {
 };
 
 // MySQL database configuration
+// export const mysqlConnection = mysql.createConnection({
+//   host: "localhost",
+//   user: "balancei_admin",
+//   password: "JHa2jejD1P",
+//   database: "balancei_nutweb",
+// });
+
 export const mysqlConnection = mysql.createConnection({
   host: "localhost",
-  user: "balancei_admin",
-  password: "JHa2jejD1P",
-  database: "balancei_nutweb",
+  user: "root",
+  password: "",
+  database: "balancei_local",
 });
 
 // mysqlConnection.connect((err) => {
