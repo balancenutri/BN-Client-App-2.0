@@ -4,11 +4,6 @@ import { secret, tokenExpiration } from "../config/config.js";
 import jwt from "jsonwebtoken"; // Correct import for ES module syntax
 import md5 from "md5";
 import { mysqlConnection } from "../db.js";
-import Twilio from "twilio/lib/rest/Twilio.js";
-
-function generateOTP() {
-  return Math.floor(100000 + Math.random() * 900000).toString(); // Generates a 6-digit OTP
-}
 
 export const forceAppUpdate = async (req, res) => {
   let responseData;
@@ -108,68 +103,15 @@ export const emailLogin = async (req, res) => {
 };
 
 
-export const sendOtp = (req, res) => {
-  const { phoneNumber } = req.body;
-
-  if (!phoneNumber) {
-    return res.status(400).json({ message: "Phone number is required" });
-  }
-
-  // Query to find the user by phone number
-  mysqlConnection.query(
-    "SELECT user_id FROM users WHERE phone_number = ?",
-    [phoneNumber],
-    (err, results) => {
-      if (err) {
-        console.error("Database query error:", err);
-        return res
-          .status(500)
-          .json({ message: "Internal server error", error: err });
-      }
-
-      if (results.length === 0) {
-        return res.status(400).json({ message: "Invalid phone number" });
-      }
-
-      const userId = results[0].user_id;
-      console.log("User ID:", userId);
-
-      const otp = generateOTP();
-
-      // Store the OTP in the database
-      mysqlConnection.query(
-        "UPDATE users SET otp = ? WHERE user_id = ?",
-        [otp, userId],
-        (err, updateResults) => {
-          if (err) {
-            console.error("Database update error:", err);
-            return res
-              .status(500)
-              .json({ message: "Internal server error", error: err });
-          }
-
-          // Send OTP using Twilio
-          client.messages
-            .create({
-              body: `Your OTP code is ${otp}`,
-              from: process.env.TWILIO_PHONE_NUMBER,
-              to: phoneNumber,
-            })
-            .then((message) => {
-              res
-                .status(200)
-                .send({ success: true, message: `OTP sent to ${phoneNumber}` });
-            })
-            .catch((error) => {
-              console.error("Error sending OTP:", error);
-              res.status(500).json({ message: "Internal server error", error });
-            });
-        }
-      );
-    }
-  );
+export const sendOtp = async (req, res) => {
+  let responseData;
+  console.log(req.body.email);
+  responseData = {
+    status: true,
+    message: "OTP sent successfully",
+  };
+  return res.status(200).json(responseData);
 };
-
 
 export const verifyOtp = async (req, res) => {
   let responseData;
