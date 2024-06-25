@@ -20,12 +20,12 @@ export const connectToMongoDB = () => {
 };
 
 // MySQL database configuration
-// export const mysqlConnection = mysql.createConnection({
-//   host: "localhost",
-//   user: "balancei_admin",
-//   password: "JHa2jejD1P",
-//   database: "balancei_nutweb",
-// });
+export const mysqlConnection = mysql.createConnection({
+  host: "localhost",
+  user: "balancei_admin",
+  password: "JHa2jejD1P",
+  database: "balancei_nutweb",
+});
 
 // export const mysqlConnection = mysql.createConnection({
 //   host: "localhost",
@@ -34,10 +34,10 @@ export const connectToMongoDB = () => {
 //   database: "balancei_local",
 // });
 
-mysqlConnection.connect((err) => {
-  if (err) {
-    console.error("Error connecting to MySQL database:", err);
-    process.exit(1); // Exit with failure code
-  }
-  console.log("Connected to MySQL database!");
-});
+// mysqlConnection.connect((err) => {
+//   if (err) {
+//     console.error("Error connecting to MySQL database:", err);
+//     process.exit(1); // Exit with failure code
+//   }
+//   console.log("Connected to MySQL database!");
+// });
