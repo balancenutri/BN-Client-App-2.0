@@ -34,7 +34,7 @@ app.use(express.json());
 // -----------------------------Routes Starts---------------------------------
 // =================================================================
 app.use("/bnClientApp/loginApp", loginRouter);
-// app.use("/bnClientApp/protected", protectedRouter);
+app.use("/bnClientApp/protected", protectedRouter);
 app.use("/bnClientApp/programIntro", programIntroRouter);
 app.use("/bnClientApp/sideBarMenu", sideBarMenuRouter);
 app.use("/bnClientApp/assessment", assessmentRouter);

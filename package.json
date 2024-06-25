@@ -24,6 +24,7 @@
     "morgan": "^1.10.0",
     "mysql2": ">=3.7.0",
     "sequelize": "^6.37.3",
+    "twilio": "^5.2.0",
     "vercel": "^34.1.10"
   },
   "devDependencies": {

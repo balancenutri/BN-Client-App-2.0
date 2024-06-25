@@ -44,11 +44,12 @@ export const programValidity = async (req, res) => {
      
       const response_data = {
         status: true,
+        message : "Program Validity",
         data: {
             prog_name: "Plateau Breaker(Client Exclusive)",
             prog_validity: "115",
             addntl_validity: "25",
-            as_per_prog: 90
+            as_per_prog: "90"
           }
     }
 
