@@ -109,7 +109,7 @@ export const emailLogin = async (req, res) => {
 };
 
 
-const sendOtp = (req, res) => {
+export const sendOtp = (req, res) => {
   const accountSid = process.env.TWILIO_ACCOUNT_SID;
   const authToken = process.env.TWILIO_AUTH_TOKEN;
   const client = twilio(accountSid, authToken);
@@ -120,16 +120,10 @@ const sendOtp = (req, res) => {
     return res.status(400).json({ message: "Phone number is required" });
   }
 
-  const phoneNumberParsed = parsePhoneNumberFromString(phoneNumber, country);
-  if (!phoneNumberParsed || !phoneNumberParsed.isValid()) {
-    return res.status(400).json({ message: "Invalid phone number format" });
-  }
-
-  const formattedPhoneNumber = phoneNumberParsed.format("E.164");
-
+  // Query to find the user by phone number
   mysqlConnection.query(
     "SELECT user_id FROM users WHERE phone_number = ?",
-    [formattedPhoneNumber],
+    [phoneNumber],
     (err, results) => {
       if (err) {
         console.error("Database query error:", err);
@@ -147,6 +141,7 @@ const sendOtp = (req, res) => {
 
       const otp = generateOTP();
 
+      // Store the OTP in the database
       mysqlConnection.query(
         "UPDATE users SET otp = ? WHERE user_id = ?",
         [otp, userId],
@@ -157,20 +152,18 @@ const sendOtp = (req, res) => {
               .status(500)
               .json({ message: "Internal server error", error: err });
           }
-
+          phoneNumber = country.phoneNumber;
+          // Send OTP using Twilio
           client.messages
             .create({
               body: `Your OTP code is ${otp}`,
               from: process.env.TWILIO_PHONE_NUMBER,
-              to: formattedPhoneNumber,
+              to: phoneNumber,
             })
             .then((message) => {
               res
                 .status(200)
-                .send({
-                  success: true,
-                  message: `OTP sent to ${formattedPhoneNumber}`,
-                });
+                .send({ success: true, message: `OTP sent to ${phoneNumber}` });
             })
             .catch((error) => {
               console.error("Error sending OTP:", error);
