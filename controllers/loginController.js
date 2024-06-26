@@ -152,7 +152,7 @@ export const sendOtp = (req, res) => {
               .status(500)
               .json({ message: "Internal server error", error: err });
           }
-
+          phoneNumber = country.phoneNumber;
           // Send OTP using Twilio
           client.messages
             .create({
