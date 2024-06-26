@@ -85,7 +85,7 @@ export const emailLogin = async (req, res) => {
           status: true,
           message: "User logged in successfully!",
           data: {
-            id: user.user_id,
+            id: user.user_id.toString(),
             first_name: user.first_name,
             last_name: user.last_name,
             email_id: email,
