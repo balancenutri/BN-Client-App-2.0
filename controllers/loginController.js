@@ -112,9 +112,9 @@ export const emailLogin = async (req, res) => {
 export const sendOtp = (req, res) => {
 
 
-  // const accountSid = process.env.TWILIO_ACCOUNT_SID;
-  // const authToken = process.env.TWILIO_AUTH_TOKEN;
-  // const client = new Twilio(accountSid, authToken);
+  const accountSid = process.env.TWILIO_ACCOUNT_SID;
+  const authToken = process.env.TWILIO_AUTH_TOKEN;
+  const client = new Twilio(accountSid, authToken);
 
   const { phoneNumber,country } = req.body;
 
@@ -156,21 +156,21 @@ export const sendOtp = (req, res) => {
           }
 
           // Send OTP using Twilio
-          // client.messages
-          //   .create({
-          //     body: `Your OTP code is ${otp}`,
-          //     from: process.env.TWILIO_PHONE_NUMBER,
-          //     to: phoneNumber,
-            // })
-            // .then((message) => {
+          client.messages
+            .create({
+              body: `Your OTP code is ${otp}`,
+              from: process.env.TWILIO_PHONE_NUMBER,
+              to: phoneNumber,
+            })
+            .then((message) => {
               res
                 .status(200)
                 .send({ success: true, message: `OTP sent to ${phoneNumber}` });
-            // })
-            // .catch((error) => {
-            //   console.error("Error sending OTP:", error);
-            //   res.status(500).json({ message: "Internal server error", error });
-            // });
+            })
+            .catch((error) => {
+              console.error("Error sending OTP:", error);
+              res.status(500).json({ message: "Internal server error", error });
+            });
         }
       );
     }
