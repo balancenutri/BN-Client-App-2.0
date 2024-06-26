@@ -67,7 +67,7 @@ export const messageByKhyati = async (req, res) => {
       status: true,
       message: "video_by_user_type",
       skip_assessment: 0,
-      program_details_flag: 4,
+      program_details_flag: 2,
       check_ICL: "N",
       program_renewed: 1,
       welcome_info: [
