@@ -86,7 +86,7 @@ mysqlConnection.connect(async (mysqlErr) => {
 // Error handler middleware
 app.use((err, req, res, next) => {
   console.error(err.stack);
-  res.status(500).send("Something broke!");
+  res.status(500).send("Something broke!". err);
 });
 
 // Default route
