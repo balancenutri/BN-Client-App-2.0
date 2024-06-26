@@ -20,6 +20,7 @@ import recipeRouter from "./routes/recipeRoutes.js";
 import trackerRouter from "./routes/trackerRoutes.js";
 import checkoutRouter from "./routes/checkoutRoutes.js";
 import protectedRouter from "./routes/protectedRoutes.js";
+import commonRouter from "./routes/commonRoutes.js";
 // =================================================================
 
 dotenv.config();
@@ -48,6 +49,7 @@ app.use("/bnClientApp/recipe", recipeRouter);
 app.use("/bnClientApp/tracker", trackerRouter);
 app.use("/bnClientApp/tracker", trackerRouter);
 app.use("/bnClientApp/checkout", checkoutRouter);
+app.use("/bnClientApp/common", commonRouter);
 // =================================================================
 
 const PORT = process.env.PORT || 3000;
