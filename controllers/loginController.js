@@ -4,7 +4,7 @@ import { secret, tokenExpiration } from "../config/config.js";
 import jwt from "jsonwebtoken"; // Correct import for ES module syntax
 import md5 from "md5";
 import { mysqlConnection } from "../db.js";
-import Twilio from "twilio/lib/rest/Twilio.js";
+// import Twilio from "twilio/lib/rest/Twilio.js";
 
 function generateOTP() {
   return Math.floor(100000 + Math.random() * 900000).toString(); // Generates a 6-digit OTP
@@ -112,9 +112,9 @@ export const emailLogin = async (req, res) => {
 export const sendOtp = (req, res) => {
 
 
-  const accountSid = process.env.TWILIO_ACCOUNT_SID;
-  const authToken = process.env.TWILIO_AUTH_TOKEN;
-  const client = new Twilio(accountSid, authToken);
+  // const accountSid = process.env.TWILIO_ACCOUNT_SID;
+  // const authToken = process.env.TWILIO_AUTH_TOKEN;
+  // const client = new Twilio(accountSid, authToken);
 
   const { phoneNumber,country } = req.body;
 
