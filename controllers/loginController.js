@@ -110,13 +110,11 @@ export const emailLogin = async (req, res) => {
 
 
 export const sendOtp = (req, res) => {
-
-
   const accountSid = process.env.TWILIO_ACCOUNT_SID;
   const authToken = process.env.TWILIO_AUTH_TOKEN;
-  const client =  twilio(accountSid, authToken);
+  const client = twilio(accountSid, authToken);
 
-  const { phoneNumber,country } = req.body;
+  const { phoneNumber, country } = req.body;
 
   if (!phoneNumber) {
     return res.status(400).json({ message: "Phone number is required" });
