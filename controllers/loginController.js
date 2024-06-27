@@ -140,7 +140,6 @@ export const sendOtp = (req, res) => {
       console.log("User ID:", userId);
 
       const otp = generateOTP();
-
       // Store the OTP in the database
       mysqlConnection.query(
         "UPDATE users SET otp = ? WHERE user_id = ?",

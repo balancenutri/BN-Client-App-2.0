@@ -35,7 +35,7 @@ export const assessmentList = async (req, res) => {
       },
       {
         name: "Note To Mentor & Khyati",
-        status: "2",
+        status: "0",
       },
     ],
   };
